@@ -1,0 +1,83 @@
+Roteamento entre os ISPs: BGP
+
+● No BGP, os pacotes não são roteados para um
+endereço de destino específico, mas para prefixos
+a. Sub-redes
+● A tabela de repasse terá linhas no formato (x, I)
+a. x é um prefixo
+b. I é uma interface
+
+● O BGP fornece um meio de
+a. Obter informações de alcançabilidade do prefixo
+de ASs vizinhos
+b. Determinar as melhores rotas até os prefixos
+
+● Cada roteador, ou é um roteador de borda ou roteador
+interno
+a. Um roteador interno se conecta diretamente
+apenas a hospedeiros e roteadores do seu
+próprio AS
+
+Anúncio de rotas BGP
+● Pares de roteadores trocam informações via conexões
+TCP (conexões BGP)
+● Uma conexão que envolve dois ASs é uma conexão
+BGP externa
+● Uma conexão que envolve roteadores no mesmo ASs é
+uma conexão BGP interna
+
+● São muitos caminhos possíveis na Internet
+a. Como a escolha é feita?
+● Atributos BGP são associados a um prefixo para
+definir uma rota
+a. AS-PATH
+i. Evita laços
+b. NEXT-HOP
+
+BGP: Determinando
+as melhores rotas
+● A rota escolhida é a com menor custo até o próximo
+NEXT-HOP
+● A ideia é tirar os pacotes o mais rápido possível do
+próprio AS
+● Trata-se de um algoritmo egoísta
+
+BGP: Roteamento da
+batata quente
+
+● O BGP é mais complexo que o algoritmo da batata
+quente, mas o incorpora
+a. Preferência local
+b. AS-PATH mais curto
+c. NEXT-HOP mais próximo
+d. Identificadores BGP
+
+BGP: Algoritmo de
+seleção de rota
+
+● Muitas vezes, estamos interessados em
+a. Replicar o mesmo conteúdo
+b. Cada usuário acesse ao servidor mais próximo
+● Uma CDN busca alcançar essas características
+● O BGP fornece um mecanismo para realizar isso
+a. Como?
+
+BGP: IP-Anycast
+● CDNs optam por não utilizar esse mecanismo
+a. Mudanças no roteamento podem impactar
+conexões TCP
+
+● Bastante utilizado por sistemas DNS
+
+● Preferência local
+● Na prática, ISPs comerciais restringem sua utilização
+a tráfegos em que sejam origem ou destino
+a. Esquemas de parceria (peering)
+
+BGP: Política de
+roteamento
+
+● Por que existem algoritmos diferentes?
+a. Política
+b. Escalabilidade
+c. Desempenho

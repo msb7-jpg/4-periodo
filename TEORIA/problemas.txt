@@ -1,0 +1,4 @@
+Problema da mochila
+Problema do caixeiro viajante
+problema das cores
+
